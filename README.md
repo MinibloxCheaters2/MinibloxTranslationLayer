@@ -1,5 +1,8 @@
 # MinibloxTranslationLayer
 
+> [!WARNING]
+> I am somewhat lazy and I use this like twice every half a year or something so uh don't expect frequent updates (actually I'm gonna make one now)
+
 A middle man to translate Miniblox packets into Minecraft 1.8.9 packets.
 
 ## Progress
@@ -20,13 +23,13 @@ A middle man to translate Miniblox packets into Minecraft 1.8.9 packets.
 - [x] CPacketAnimation
 - [x] CPacketBlockAction
 - [x] CPacketBlockUpdate
-- [ ] CPacketChangeServers (idk what this does, just logs the url field to the console)
+- [ ] CPacketChangeServers (idk what this does, the implementation just logs the url field to the console.)
 - [x] CPacketChunkData
 - [x] CPacketCloseWindow
 - [x] CPacketConfirmTransaction
 - [x] CPacketDestroyEntities
 - [x] CPacketDisconnect
-      (waits for the connection to actually be closed)
+      (waits for the connection to actually be closed, idk why the disconnect packet wasn't implemented in the translation layer itself)
 - [x] CPacketEntityAction
 - [x] CPacketEntityEquipment
 - [x] CPacketEntityMetadata
@@ -56,7 +59,7 @@ A middle man to translate Miniblox packets into Minecraft 1.8.9 packets.
 - [x] CPacketSpawnPlayer
 - [x] CPacketTabComplete
 - [x] CPacketTitle
-- [ ] CPacketUpdate
+- [ ] CPacketUpdate (probably should just rebroadcast it as a custom payload)
 - [x] CPacketUpdateHealth
 - [x] CPacketUpdateLeaderboard (untested)
 - [x] CPacketUpdateScoreboard
@@ -69,11 +72,11 @@ A middle man to translate Miniblox packets into Minecraft 1.8.9 packets.
 - [x] CPacketSpawnExperienceOrb
 - [x] CPacketSetExperience
 - [x] CPacketOpenShop
-- [ ] CPacketShopProperties
+- [ ] CPacketShopProperties (uh idk)
 - [x] CPacketEntityProperties
 - [x] CPacketEntityEffect
 - [x] CPacketRemoveEntityEffect
-- [ ] CPacketUpdateCommandBlock
+- [ ] CPacketUpdateCommandBlock (note that they actually check if you're in creative before actually updating it)
 - [x] CPacketEntityAttach
 - [x] CPacketServerMetadata
 - [x] CPacketTimeUpdate
@@ -85,12 +88,12 @@ A middle man to translate Miniblox packets into Minecraft 1.8.9 packets.
 - [x] SPacketClickWindow
 - [x] SPacketCloseWindow
 - [x] SPacketConfirmTransaction
-- [ ] SPacketEnchantItem
+- [ ] SPacketEnchantItem (lazy)
 - [x] SPacketEntityAction
 - [x] SPacketHeldItemChange
 - [x] SPacketLoginStart
 - [x] SPacketMessage
-- [ ] SPacketOpenShop
+- [ ] SPacketOpenShop (this does nothing..?)
 - [x] SPacketPing
 - [x] SPacketPlayerAbilities
 - [x] SPacketPlayerAction
@@ -99,15 +102,15 @@ A middle man to translate Miniblox packets into Minecraft 1.8.9 packets.
 - [x] SPacketTabComplete
 - [x] SPacketUpdateSign
 - [x] SPacketUseEntity
-- [ ] SPacketUpdateCommandBlock
-- [x] SPacketQueueNext
+- [ ] SPacketUpdateCommandBlock (probably should do this)
+- [x] SPacketQueueNext (no more getting kicked at the end of a game)
 - [x] SPacketPlayerInput
 - [x] SPacketBreakBlock
 - [x] SPacketClick
-- [ ] SPacketCraftItem
+- [ ] SPacketCraftItem (requires a item to craft instead of recipe, and I'm lazy)
 - [x] SPacketPlaceBlock
 - [x] SPacketRequestChunk
-- [x] SPacketUpdateInventory (creative mode)
+- [x] SPacketUpdateInventory (creative mode, note that the item mappings are somewhat hit or miss, so you might not get what you wanted.)
 - [x] SPacketUseItem
 
 ## Use Steps
@@ -183,6 +186,12 @@ but you will be limited to effectively 2 BPS (and your rotations won't sync).
 You can also use this as a NoFall,
 simply desync when you are about to fall,
 and resync as soon as you hit the ground.
+
+## /next
+
+Syntax: `/next`
+
+Sends you to the next game using `CPacketQueueNext`, note that sometimes the server just doesn't allow this command.
 
 ## /serverid, /id, and /invite
 
