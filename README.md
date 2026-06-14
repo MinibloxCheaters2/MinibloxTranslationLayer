@@ -176,6 +176,9 @@ Reloads... the... chunks. (like <kbd>F3</kbd> + <kbd>A</kbd>)
 
 Syntax: `/desync`
 
+> [!IMPORTANT]
+> Desync has been patched in a new update by Vector, as of 6/12/2026 (MM/DD/YYYY).
+
 Toggles if you are de-synced on the server or not.
 
 This makes the input sequence number not increment
