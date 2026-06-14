@@ -19,7 +19,7 @@ const server = createServer({
 	keepAlive: false,
 	version: "1.8.9",
 });
-const VERSION = "3.41.46";
+const VERSION = "3.43.12";
 import GAMEMODES from "./miniblox/types/gamemodes.js";
 const DEFAULT_GAMEMODE = "survival";
 let connected,
