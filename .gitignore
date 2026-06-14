@@ -5,3 +5,4 @@ miniblox/1.8blockstates.txt
 miniblox/minibloxblockstates.txt
 deno.lock
 package-lock.json
+bun.lock
