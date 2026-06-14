@@ -89,6 +89,14 @@ function uuid() {
 	);
 }
 
+/**
+ *
+ * @param {import("minecraft-protocol").ServerClient} client
+ * @param {*} requeue
+ * @param {*} gamemode
+ * @param {*} code
+ * @returns
+ */
 async function connect(client, requeue, gamemode, code) {
 	if (requeue) {
 		skipKick = Date.now() + 20;
@@ -127,7 +135,7 @@ async function connect(client, requeue, gamemode, code) {
 	);
 	let session = "";
 	try {
-		session = await readFileSync("login.token", { encoding: "utf8" });
+		session = readFileSync("login.token", { encoding: "utf8" });
 	} catch (exception) {}
 
 	// MINIBLOX CONNECTION
@@ -139,6 +147,7 @@ async function connect(client, requeue, gamemode, code) {
 				hydration: "0",
 				metricsId: uuid(),
 				clientVersion: VERSION,
+				language: "en",
 			}),
 		);
 	});

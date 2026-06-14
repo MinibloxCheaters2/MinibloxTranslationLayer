@@ -37,13 +37,10 @@ export class SPacketLoginStart extends Message {
 	requestedUuid;
 	/** @type {string} */
 	clientVersion;
+	/** @type {string | undefined} */
+	language;
 	constructor($) {
 		super();
-		ut(this, "session");
-		ut(this, "hydration");
-		ut(this, "metricsId");
-		ut(this, "requestedUuid");
-		ut(this, "clientVersion");
 		proto2.util.initPartial($, this);
 	}
 	static fromBinary($, et) {
@@ -97,6 +94,13 @@ export class SPacketLoginStart extends Message {
 				name: "client_version",
 				kind: "scalar",
 				T: 9,
+			},
+			{
+				no: 6,
+				name: "language",
+				kind: "scalar",
+				T: 9,
+				opt: !0,
 			},
 		]),
 	));
