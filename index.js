@@ -264,5 +264,5 @@ console.log(
 	`Originally developed & maintained by 7GrandDad (https://youtube.com/@7GrandDadVape)`,
 );
 console.log(
-	`Developed & maintained by datamodel for Miniblox v${VERSION} \x1b[0m`,
+	`Developed & maintained by Seized and Desisted for Miniblox v${VERSION} \x1b[0m`,
 );
